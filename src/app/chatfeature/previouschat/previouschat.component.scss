@@ -1,0 +1,119 @@
+
+.container{
+    height: 100vh;
+    margin-left: 420px;
+    margin-right: 280px;
+    #header{
+        height:8vh;
+        border-right: 1px solid rgb(223, 222, 222);   
+        border-bottom: 1px solid rgb(223, 222, 222);  
+        margin-left: -15px; 
+        #profilepic{
+            width:6vh;
+            height:6vh;
+        }
+        .headericons{
+            margin-left: auto;
+        }
+    }
+    #conversation{
+        border-right: 1px solid rgb(223, 222, 222);   
+        height:84vh ;
+        display: flex; 
+        flex-direction: column-reverse;
+        overflow-y: scroll;
+        #imageLeft{
+            width:30px;
+            height: 30px;
+            &.me{
+                display: none;
+            }
+        }
+        #message{    
+            width:fit-content;
+            border-radius: 30px;
+            background-color: rgb(243, 241, 241);
+            &.me{
+                margin-left: auto;
+                background-color: rgb(18, 129, 255);
+                color:white;
+                float: right;
+            }
+        }
+    }
+    #imageRight{
+        width:15px;
+        height: 15px;
+        &.me{
+            display: none;
+        }
+    }
+    #dateAndTime{
+        font-size: 11px;
+    }
+    #footer{
+        border-right: 1px solid rgb(223, 222, 222);   
+        height:8vh;
+        #inputText{
+            width:68%;
+            height: 35px;
+            border-radius: 25px;
+            background-color: rgb(243, 241, 241);
+            border: none;
+            outline: none;
+        }
+        #smileyInside{
+            margin-left: -35px; 
+        }
+        img, #smileyInside{
+            width: 25px;
+            height: 25px;
+        }
+    }
+}
+.accordion{
+    cursor: pointer;
+    transition: 0.4s;
+}
+.accordion:hover, .panel h6:hover{
+    background-color: rgb(243, 241, 241);
+}
+.panel {
+    padding: 0 18px;
+    background-color: white;
+    display: none;
+    overflow: hidden;
+}
+.subIcons{
+    width: 40px;
+    height: 40px;
+}
+.icon{
+    font-size: larger;
+}
+#contactProfile{
+    overflow-y: scroll;
+    position: fixed;
+    right: 0;  
+    display: flex;
+    max-width:280px;
+    height: 100vh;
+}
+.fa-angle-down{
+    display:none;
+}
+#previousChats{
+    border-right: 1px solid rgb(223, 222, 222); 
+}
+.subtext{
+    font-size: 13px;
+}
+
+@media screen and (max-width:1024px){    
+    .container{
+        margin-right: 250px;
+    }
+    #inputText{
+        max-width:40%;
+    }
+}

@@ -1,0 +1,84 @@
+#messenger-icon {
+    width: 40px;
+    height: 50px;
+}
+
+#meta-icon {
+    width: 85%;
+    height: 30px;
+    margin-top: 7%;
+}
+
+#topnavbar,
+#forgotpw {
+    font-size: 1.1vw;
+}
+
+#topnavbar {
+    width: 100%;
+    top: 0;
+    position: sticky;
+    z-index: 1;
+    opacity: 0.95;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+#bottomnavbar {
+    font-size: 1vw;
+}
+
+#emailorph,
+#password {
+    height: 35px;
+    width: 300px;
+}
+
+#login-btn {
+    background-color: rgb(0, 132, 255);
+    border-radius: 25px;
+    padding-top: 11px;
+    padding-bottom: 11px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.checkbox {
+    font-size: 14px;
+}
+
+#forgotpw {
+    color: rgb(0, 132, 255);
+}
+
+#appstrore-ms {
+    width: 250px;
+    height: 65px;
+}
+
+#introimgright {
+    right: 0;
+    width: 50vw;
+}
+
+#introSubText {
+    color: #595959;
+    margin: 0 0 38px;
+    max-width: unset;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 400;
+    word-break: keep-all;
+}
+
+#introText {
+    background-image: linear-gradient(83.84deg, #0088ff -6.87%, #a033ff 26.54%, #ff5c87 58.58%);
+    background: linear-gradient(81.84deg, #0099ff -9.4%, #a033ff 51.57%, #ff5280 84.07%,
+            #ff7061 90.59%);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 75px;
+    letter-spacing: -2px;
+    line-height: 82px;
+    padding: 0 0 28px;
+    word-break: break-word;
+}

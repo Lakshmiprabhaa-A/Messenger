@@ -1,0 +1,44 @@
+<div class="search-container text-center d-flex flex-direction-row flex-wrap">
+
+    <div id="heading" class="d-block w-100 p-2">
+        <h4 class="float-left font-weight-bolder pl-3 mt-1" >Chats</h4>        
+        <img class="icons mx-1 float-right" [src]="edit">
+        <img class="icons mx-1 float-right" [src]="vd">
+
+        <button class="icons border-0 mx-1 float-right rounded-circle text-dark" 
+        (click)="showNewMessageProfile()">
+            <ng-container *ngIf="numberOfNewMessages>0">
+                {{numberOfNewMessages}}
+            </ng-container>
+        </button>
+        
+    </div>
+    <div class="container pb-3" [ngStyle]="{'display': enteredSearchValue!=''? 'flex' : '' }">
+
+        <i id="backIcon" 
+            class="bg-white text-secondary fa fa-arrow-left rounded-circle p-2 mr-1" 
+            aria-hidden="true" 
+            (click)="reloadCurrentPage()" 
+            [ngStyle]="{'display': enteredSearchValue!=''? '' : 'none' }">
+        </i>
+
+        <form class="form">
+
+            <button type="submit" class="search-button">
+                <i class="fa fa-search text-secondary" aria-hidden="true" ></i>
+            </button>
+
+            <input 
+                id="search" 
+                class="border-0" 
+                type="text" 
+                placeholder=" Search Messenger" 
+                name="searchI/P" 
+                [(ngModel)]="enteredSearchValue" 
+                (input)="onSearchTextChange()" 
+                [ngStyle]="{'width': enteredSearchValue!=''? '275px' : '' }"
+            >
+
+        </form>
+    </div>
+</div>
