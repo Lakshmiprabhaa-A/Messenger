@@ -1,0 +1,60 @@
+#sidenavbar {
+    width: 60px;
+}
+
+#allChats {
+    width: 360px;
+    border-right: 1px solid rgb(223, 222, 222);
+    border-left: 1px solid rgb(223, 222, 222);
+}
+
+#downloads,
+#markAllAsRead {
+    height: 8vh;
+
+    h6 {
+        padding-top: 2vh;
+    }
+
+    border-top: 1px solid rgb(223, 222, 222);
+}
+
+#contactimage {
+    width: 50px;
+    height: 50px;
+}
+
+#contactchats,
+#profilesWithNewMessage,
+#onlyAfterSearch {
+    height: 76vh;
+    overflow-y: scroll;
+}
+
+#removeButton {
+    margin-left: 6rem;
+    cursor: pointer;
+}
+
+#check:hover {
+    background-color: rgb(236, 233, 233);
+    border-radius: 10px;
+}
+
+#moreoption {
+    display: none;
+    width: 35px;
+    height: 35px;
+}
+
+#nochat {
+    top: 34%;
+    left: 59%;
+}
+
+@media screen and (min-width: 1440px) {
+    #nochat {
+        top: 36%;
+        left: 56%;
+    }
+}

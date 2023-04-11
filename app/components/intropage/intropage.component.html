@@ -1,0 +1,103 @@
+
+<!-- top navigation bar -->
+
+    <nav id="topnavbar" class="py-4 pl-4 font-weight-bold bg-white navbar navbar-expand-sm">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <img id="messenger-icon" class="mt-0 navbar-brand" [src]="icon">
+            </div>
+            <ul class="nav navbar-nav ml-auto">
+                <ng-container *ngFor="let item of topNavBarItems">
+                    <li class="nav-item">
+                        <p class="mt-2 mr-3 nav-link">{{item}}</p>
+                    </li> 
+                </ng-container>
+               <li class="nav-item">
+                   <p class="mt-2 nav-link">For developers</p>
+                </li>  
+            </ul>
+        </div>
+    </nav>
+
+<!-- middle part - login and others -->
+
+    <div class="mx-xl-4 py-4 pl-4 d-flex">
+        <div id="block1" class="w-50">
+            <div>
+                <h1 id="introText" class="d-inline-block text-align-left">
+                    {{introtext[0]}}<br>{{introtext[1]}}<br>{{introtext[2]}}</h1>
+                <div id="introSubText">
+                    {{introsubtext[0]}}<br>{{introsubtext[1]}}
+                </div>
+            </div>
+
+            <!-- login functionality if true goes to main page else to another login page -->
+
+            <div>
+                <form  id="userInput" (ngSubmit)="checkForRightUser()">
+                    <input 
+                        [(ngModel)]="usernameEntered" 
+                        class="rounded bg-light mb-3 form-control"
+                        id="emailorph" 
+                        name="userid" 
+                        type="text" 
+                        placeholder=" Email address or phone number"
+                    >
+                    <input 
+                        [(ngModel)]="passwordEntered" 
+                        class="rounded bg-light form-control" 
+                        id="password"
+                        name="password" 
+                        type="password" 
+                        placeholder=" Password"
+                    >
+                    <br>
+                    <button id="login-btn" class="text-light border-0 font-weight-bold" type="submit">
+                        Log In
+                    </button>
+                    <u id="forgotpw" class="ml-3">Forgotten your password?</u>
+                    <br><br>
+                    <p class="checkbox">
+                        <input type="checkbox">&nbsp;&nbsp; Keep me signed in
+                    </p>
+                    <img class="" [src]=appstrorems id="appstrore-ms">
+                </form>
+            </div>
+        </div>
+        <div id="block2" class="w-50">
+            <img class="float-right" [src]=introimgright id="introimgright">
+        </div>
+    </div>
+
+    <br><br>
+
+    <!-- bottom navigation bar -->
+
+    <div>
+        <nav id="bottomnavbar" class="py-4 pl-4 navbar navbar-expand-sm">
+            <div class="container-fluid">
+                <ul class=" nav navbar-nav mx-auto">
+                    <li class="nav-item font-weight-bold">
+                        <p class="mt-2 nav-link">© Meta 2023.</p>
+                    </li>  
+                    <ng-container *ngFor="let item of bottomNavBarItems">
+                        <li class="nav-item">
+                            <p class="mt-2 mr-xl-4 mr-lg-3 nav-link">{{item}}</p>
+                        </li> 
+                    </ng-container>
+                    <li class="nav-item">
+                        <p class="mt-2 mr-xl-3 mr-lg-2 nav-link">Terms</p>
+                    </li> 
+                    <li class="nav-item">
+                        <p class="mt-2 mr-xl-2 mr-lg-1 nav-link text-secondary">English (UK)
+                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                        </p>
+                    </li>
+                    <li class="nav-item">
+                        <img [src]=meta id="meta-icon">
+                    </li>  
+                </ul>
+            </div>
+        </nav>
+    </div>
+

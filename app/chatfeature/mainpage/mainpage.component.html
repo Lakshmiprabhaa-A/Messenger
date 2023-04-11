@@ -1,0 +1,22 @@
+
+<div class="d-flex flex-direction-row flex-wrap">
+    <div class="h-100 position-fixed" id="sidenavbar">
+        <app-sidenavbar></app-sidenavbar>
+    </div>
+
+    <div class="h-100 position-fixed" id="allChats">
+        <app-chatcontacts (contactClicked)="onConversationSelected($event)"></app-chatcontacts>
+    </div>
+
+    <div id="chat">
+        <ng-container *ngIf="!isConversation">
+            <div id="chatHolder">
+                <img class="position-absolute" id="nochat"[src]="nochat" />
+            </div>
+        </ng-container>
+        
+
+        <app-previouschat [conversation]="conversation" *ngIf="isConversation"></app-previouschat>
+            
+    </div>
+</div>

@@ -1,0 +1,169 @@
+<div class="d-flex" id="previousChats">
+
+    <div class="container">
+
+        <!-- dp and name part -->
+
+        <div id="header" class="d-flex ">
+            <img class="rounded-circle mx-2 mt-1" id="profilepic" [src]="conversation.photo">
+            <h6 class="my-3 ml-2">{{conversation.name}}</h6>
+            <div class="headericons mt-1 mb-1">
+                <ng-container *ngFor="let item of headericons">
+                    <img class="headericon p-2" [src]="item">
+                </ng-container>
+            </div>
+        </div>
+
+        <!-- middle conversation part -->
+
+        <div id="conversation">
+            <div class=" d-flex flex-column justify-content-end">
+                <ng-container *ngFor="let message of conversation.messages ; let i = index;let last = last;">
+                    <ng-container *ngIf="check(i)">
+                        <span id="dateAndTime"  class="text-center font-weight-bold text-secondary my-2">
+                            <ng-container *ngIf="typeOf(message.date)==='string'">
+                                {{message.date}}, {{message.time}}
+                            </ng-container>
+                        </span>
+                    </ng-container>
+
+                    <span class="d-flex mr-4">
+
+                        <img id="imageLeft" class="rounded-circle mt-2 mr-2" 
+                            [src]="conversation.photo"
+                            [ngClass]="{me:message.me}" 
+                        />
+                        <span id="message" class="py-2 px-4 my-1" [ngClass]="{me:message.me}">
+                            {{ message.body }}<br>
+                        </span>
+                        <ng-container *ngIf="last">
+                            <ng-container *ngFor="let message of messageList">
+                                    {{message}}<br>
+                            </ng-container>
+                            <img id="imageRight" class="rounded-circle mt-3 ml-2" [src]="conversation.photo"
+                                [ngClass]="{me:!message.me}">
+                        </ng-container>
+                    </span>
+                </ng-container>
+            </div>
+        </div>
+
+        <!-- texting section -->
+
+        <div class="d-flex" id="footer" class="my-auto">
+            <img class="mr-2" [src]="plus">
+            <img class="mr-2" [src]="images" [ngStyle]="{'display': Istyping? 'none' : ''}">
+            <img class="mr-2" [src]="files" [ngStyle]="{'display': Istyping? 'none' : ''}">
+            <img class="mr-2" [src]="gif" [ngStyle]="{'display': Istyping? 'none' : ''}">
+
+            <!-- message to be sent -->
+            <input 
+                id="inputText" 
+                class="border-0 mt-2" 
+                type="text" 
+                placeholder="  Aa"  
+                name="text"
+                [(ngModel)]="newMessage" 
+                (keyup)="$event.keyCode == 13 && sendMessage(conversation.uniqueId)"
+                [ngStyle]="{'width': Istyping? '84%' : ''}" 
+                (focus)="typing()" 
+                (blur)="nottyping()"
+            >
+
+            <img id="smileyInside" class="" [src]="smiley">
+            <img id="like" class="ml-3" [src]="like" [ngStyle]="{'display': Istyping? 'none' : ''}">
+
+            <!-- trying to send -->
+
+            <img id="send" class="ml-3" [src]="send" 
+                [ngStyle]="{'display': Istyping? '' : 'none'}" 
+                (click)="sendMessage(conversation.uniqueId)"
+            >
+        </div>
+
+    </div>
+
+    <!-- rightside profile section -->
+
+    <div id="contactProfile" class="float-right d-block pl-lg-2">
+
+        <div id="profileDetails" class="text-center mt-3">
+            <img id="profilePic" class="w-25 h-25 mb-2 text-center rounded-circle" [src]="conversation.photo">
+            <h6 class="text-center">{{conversation.name}}</h6>
+            <div class="d-flex text-center mx-4">
+                <ng-container *ngFor="let item of profileSubIcons">
+                    <div class="d-block p-3">
+                        <img class="subIcons rounded-circle" [src]="item.srcLink">
+                        <p>{{item.text}}</p>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+
+        <!-- accordion part -->
+
+        <div id="profileOptions" class="m-1">
+
+            <div class="accordion p-2" (click)="expand(panel1,iconright1,icondown1)">
+                <h6>
+                    Chat Info
+                    <i class="fa fa-angle-right float-right icon" aria-hidden="true" #iconright1></i>
+                    <i class="fa fa-angle-down float-right icon" aria-hidden="true" #icondown1></i>
+                </h6>
+            </div>
+            
+            <div #panel1 class="panel">
+                <h6 class="py-2"><img class="mr-1" [src]="pin">View Pinned Messages</h6>
+            </div>
+
+            <h6 class="accordion p-2" (click)="expand(panel2,iconright2,icondown2)">
+                Customise Chat
+                <i class="fa fa-angle-right float-right icon" aria-hidden="true" #iconright2></i>
+                <i class="fa fa-angle-down float-right icon" aria-hidden="true" #icondown2></i>
+            </h6>
+
+            <div #panel2 class="panel">
+                <ng-container *ngFor="let item of paneltwo">
+                    <h6 class="p-2">
+                        <img class="mr-1" [src]=item.srcLink>{{ item.text }}
+                    </h6>
+                </ng-container>
+            </div>
+
+            <h6 class="accordion p-2" (click)="expand(panel3,iconright3,icondown3)">
+                Media, Files and Links
+                <i class="fa fa-angle-right float-right icon" aria-hidden="true" #iconright3></i>
+                <i class="fa fa-angle-down float-right icon" aria-hidden="true" #icondown3></i>
+            </h6>
+
+            <div #panel3 class="panel">
+                <ng-container *ngFor="let item of panelthree">
+                    <h6 class="p-2">
+                        <img class="mr-1" [src]=item.srcLink>{{ item.text }}
+                    </h6>
+                </ng-container>
+            </div>
+
+            <h6 class="accordion p-2" (click)="expand(panel4,iconright4,icondown4)">
+                Privacy and support
+                <i class="fa fa-angle-right float-right icon" aria-hidden="true" #iconright4></i>
+                <i class="fa fa-angle-down float-right icon" aria-hidden="true" #icondown4></i>
+            </h6>
+
+            <div #panel4 class="panel">
+                <ng-container *ngFor="let item of panelfour">
+                    <h6 class="p-2">
+                        <img class="mr-1" [src]=item.srcLink>{{ item.text }}
+                    </h6>
+                </ng-container>
+                <h6 class="p-2"><img class="mr-1" [src]="report">Report
+                    <br>
+                    <span class="subtext font-weight-normal text-secondary">
+                        Give feedback and report the conversation
+                    </span>
+                </h6>
+            </div>
+        </div>
+
+    </div>
+</div>
