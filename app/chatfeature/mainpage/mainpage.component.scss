@@ -1,0 +1,30 @@
+#sidenavbar {
+  width: 60px;
+}
+#allChats {
+  margin-left: 60px;
+  width: 360px;
+}
+
+#contactchats {
+  height: 73vh;
+  overflow-y: scroll;
+}
+#chat {
+  height: 100vh;
+  flex-grow: 1;
+}
+#nochat {
+  top: 34%;
+  left: 59%;
+}
+
+@media screen and (min-width: 1440px) {
+  #contactchats {
+    height: 76vh;
+  }
+  #nochat {
+    top: 36%;
+    left: 56%;
+  }
+}

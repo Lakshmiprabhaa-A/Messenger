@@ -1,0 +1,117 @@
+<div>
+	<div class="h-100" id="allChats">
+		<app-searchnavbar (searchTextChanged)="onSearchTextEntered($event)" (newMsgProfile)="check($event)">
+		</app-searchnavbar>
+
+		<ng-container *ngIf="searchText != ''">
+			<p class="ml-4">
+				<img [src]="search" />
+				Search messages for "{{ searchText }}"
+			</p>
+		</ng-container>
+
+		<!-- for notifications -->
+
+		<ng-container *ngIf="notificationButtonClicked">
+		
+			<div id="profilesWithNewMessage">
+				<ng-container *ngFor="let contact of contacts">
+
+					<ng-container *ngFor="let profile of profileIds; let Index = index">
+
+						<ng-container *ngIf="profile == contact.uniqueId">
+
+						<div id="check" class="d-flex mx-2 pt-2" (mouseover)="displayIcon = true"
+							(click)="contactClickedFunc(contact)">
+							<div>
+								<img 
+									id="contactimage" 
+									class="pl-1 text-center rounded-circle" 
+									[src]="contact.photo" 
+								/>
+							</div>
+							<div class="d-block p-2">
+								<h6>
+									{{ contact.name }}
+									<br>
+									<span class="text-secondary font-weight-lighter">
+										{{ profileCountDetails[Index] }} New Messages
+									</span>
+								</h6>
+							</div>
+							<h4 id="removeButton" class="rounded-circle my-2 float-right"
+								(click)="removeProfile(contact.uniqueId)">
+								x
+							</h4>
+						</div>
+						</ng-container>
+					</ng-container>
+				</ng-container>
+			</div>
+			<div id="markAllAsRead" class="bg-white" (click)="removeAll()">
+				<h6 class="text-center">Mark all as read</h6>
+			</div>
+		</ng-container>
+
+		<ng-container *ngIf="!notificationButtonClicked" #main_content>
+
+		<!-- after search, contact matched will be shown because of this div -->
+
+			<div id="onlyAfterSearch" [ngStyle]="{ display: parentIsSearching ? 'block' : 'none' }">
+
+				<ng-container *ngFor="let contact of contacts">
+
+					<ng-container *ngIf="contact.name.toLowerCase().includes(searchText)">
+						
+						<div id="check" class="d-flex mx-2 pt-2" (click)="contactClickedFunc(contact)">
+							<div>
+								<img 
+									id="contactimage" 
+									class="pl-1 text-center rounded-circle" 
+									[src]="contact.photo"
+								/>
+							</div>
+							<div class="d-block py-3 pl-2">
+								<h6>{{ contact.name }}<br /></h6>
+							</div>
+						</div>
+					</ng-container>
+				</ng-container>
+			</div>
+
+		<!-- original chats list -->
+
+			<div id="contactchats" [ngStyle]="{ display: parentIsSearching ? 'none' : 'block' }">
+				<ng-container *ngFor="let contact of contacts">
+					<div 
+						id="check" 
+						class="d-flex mx-2 pt-2" 
+						(mouseover)="displayIcon = true"
+						(click)="contactClickedFunc(contact)"
+					>
+						<div>
+							<img
+								id="contactimage"
+								class="pl-1 text-center rounded-circle"
+								[src]="contact.photo"
+							/>
+						</div>
+						<div class="d-block p-2">
+							<h6>
+								{{ contact.name }}<br>
+								<span class="text-secondary font-weight-lighter">{{ contact.status }}</span>
+							</h6>
+						</div>
+					</div>
+				</ng-container>
+			</div>
+		
+			<div id="downloads" class="bg-white">
+				<h6 class="text-center">
+					<img class="" [src]="downloadwindows" />
+					Try Messenger For Windows
+				</h6>
+			</div>
+		</ng-container>
+  	</div>
+</div>

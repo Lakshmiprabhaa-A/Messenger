@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<body>
+    <div class="text-center mt-5"><br><br>
+        <div>
+            <img id="messengericon" [src]="icon"><br><p></p>
+            <p class="h1 color-dark font-weight-lighter">Messenger</p>
+        </div>
+        <br>
+
+        <!-- error message from email or password -->
+
+        <div>
+            <p class="text-danger" id="errormsg" >
+
+                <span *ngIf="emailerror; else next_content">Incorrect email address or phone number<br>
+                    The email address or mobile number you entered isn't connected to an account. 
+                    <u>Find your account and log in.</u>
+                </span>
+                <ng-template #next_content>Please re-enter your password<br>
+                    The password that you've entered is incorrect. 
+                    <u>Forgotten password?</u>
+                </ng-template>
+                
+            </p>
+        </div>
+        <br>
+
+        <!-- form for login and password -->
+
+        <form [formGroup]="loginForm" class="userinput" (ngSubmit)="checkForRightUser()">
+
+            <input 
+                formControlName="usernameEntered" 
+                class="mb-3 mx-auto form-control" 
+                id="emailorph" 
+                name="userid" 
+                type="text" 
+                placeholder=" Email address or phone number"
+            >
+            <input 
+                formControlName="passwordEntered" 
+                class="mx-auto form-control" 
+                id="password" name="password" 
+                type="password" 
+                placeholder=" Password"
+            >
+           
+            <br>
+            <button id="continue-btn"class="text-light border-0" type="submit" (click)="checkForRightUser()">
+                Continue
+            </button>
+            <br><br><br>
+            <p class="checkbox text-secondary">
+                <input type="checkbox">&nbsp;&nbsp; Keep me signed in
+            </p>
+        </form>
+
+
+        <!--NAVBAR STARTING-->
+
+        <nav class="navbar navbar-expand-sm ">
+            <div class="container">
+                <div class="mx-auto">
+                    <ul class=" nav navbar-nav navbar-center">
+                        <ng-container *ngFor="let item of bottomNavBarItems">
+                            <li class="nav-item pr-3">
+                                <p class="nav-link">{{item}}</p>
+                            </li>
+                        </ng-container>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <br>
+</body>

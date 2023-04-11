@@ -1,0 +1,16 @@
+<div class="h-100" id="sidenavbar">
+    <div class="text-center">
+        <img class="w-100" [src]="sidenavbaricon" id="sidenavbaricon">
+    </div>
+    <div class="d-block text-center" id="profile">
+        <img 
+            class="rounded-circle" 
+            id="myprofilepic" 
+            [src]="myprofilepic" 
+            (click)="logout()" 
+        />
+        <div>
+          <img class="mw-100" [src]="minmaxicon" id="minmaxicon">    
+        </div>
+    </div>
+</div>
