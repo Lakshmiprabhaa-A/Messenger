@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { logincheck } from 'src/app/services/loginDetails.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
+
 
 @Component({
 	selector: 'app-login',
@@ -10,15 +11,15 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, CanActivate {
+
+	emailerror: boolean = true;
 
 	loginForm: FormGroup;
 
-	icon = '/assets/messenger-icon.png';
+	icon = './assets/messenger-icon.png';
 
 	loginService = new logincheck();
-
-	emailerror: boolean = true;
 
 	bottomNavBarItems: string[] = [
 		"Not on Facebook?",
@@ -40,6 +41,13 @@ export class LoginComponent implements OnInit {
 			]),
 		});
 
+	}
+	canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+		if (!this.loginService.checkUsername(this.loginForm.getRawValue().usernameEntered) ||
+			!this.loginService.checkPassword(this.loginForm.getRawValue().passwordEntered) )	{
+				return false;
+		}
+			return true;	
 	}
 
 	ngOnInit(): void { }

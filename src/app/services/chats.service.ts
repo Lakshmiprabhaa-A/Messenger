@@ -21,7 +21,7 @@ export class contactschats {
 	contacts: object = [
 		{
 			uniqueId: 1,
-			photo: "/assets/Dora.jpg",
+			photo: "./assets/Dora.jpg",
 			name: "Dora",
 			status: "Lo hicimos! We did it!",
 			messages: [
@@ -36,7 +36,7 @@ export class contactschats {
 		},
 		{
 			uniqueId: 2,
-			photo: "/assets/belle.jpg",
+			photo: "./assets/belle.jpg",
 			name: "Belle",
 			status: "I want much more than this life",
 			messages: [
@@ -52,7 +52,7 @@ export class contactschats {
 		},
 		{
 			uniqueId: 3,
-			photo: "/assets/Aurora.jpg",
+			photo: "./assets/Aurora.jpg",
 			name: "Aurora",
 			status: "Currently Sleeping",
 			messages: [
@@ -68,7 +68,7 @@ export class contactschats {
 		},
 		{
 			uniqueId: 4,
-			photo: "/assets/JackieChan.jpg",
+			photo: "./assets/JackieChan.jpg",
 			name: "Jackie",
 			status: "Great Success comes with Great Aim",
 			messages: [
@@ -95,7 +95,7 @@ export class contactschats {
 		},
 		{
 			uniqueId: 6,
-			photo: "/assets/gwen.jpg",
+			photo: "./assets/gwen.jpg",
 			name: "Gwen Tennyson",
 			status: "Messed with a wrong Girl",
 			messages: [
@@ -110,7 +110,7 @@ export class contactschats {
 		},
 		{
 			uniqueId: 7,
-			photo: "/assets/kevin.jpg",
+			photo: "./assets/kevin.jpg",
 			name: "Kevin",
 			status: "Action speaks more than words",
 			messages: [
@@ -128,7 +128,7 @@ export class contactschats {
 		},
 		{
 			uniqueId: 8,
-			photo: "/assets/snowwhite.jpg",
+			photo: "./assets/snowwhite.jpg",
 			name: "Snow white",
 			status: "Apple and 7 Dwarfs",
 			messages: [
@@ -162,7 +162,7 @@ export class contactschats {
 		},
 		{
 			uniqueId: 10,
-			photo: "/assets/Uncle jackiechan.jpg",
+			photo: "./assets/Uncle jackiechan.jpg",
 			name: "Uncle",
 			status: "Dei Jackieeee Bheemaaa",
 			messages: [

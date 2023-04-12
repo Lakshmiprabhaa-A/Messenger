@@ -33,48 +33,48 @@ export class PreviouschatComponent implements OnInit{
 	formattedDate:any = this.currentDate.toLocaleDateString('en-GB', this.options);
 
 	headericons:string[]=[
-		"/assets/phone.PNG",
-		"/assets/videocall.PNG",
-		"/assets/bluemore.PNG"
+		"./assets/phone.PNG",
+		"./assets/videocall.PNG",
+		"./assets/bluemore.PNG"
 	]
 	profileSubIcons:any=
 	[
-		{srcLink:"/assets/profile.PNG",text:"Profile"},
-		{srcLink:"/assets/mute.PNG",text:"Mute"},
-		{srcLink:"/assets/search.PNG",text:"search"}
+		{srcLink:"./assets/profile.PNG",text:"Profile"},
+		{srcLink:"./assets/mute.PNG",text:"Mute"},
+		{srcLink:"./assets/search.PNG",text:"search"}
 	];
 	paneltwo:any=
 	[
-		{srcLink:"/assets/theme.PNG",text:"Change theme"},
-		{srcLink:"/assets/emoji.PNG",text:"Change emoji"},
-		{srcLink:"/assets/nickname.PNG",text:"Edit nicknames"},
-		{srcLink:"/assets/searchInChat.PNG",text:"Search in conversation"}
+		{srcLink:"./assets/theme.PNG",text:"Change theme"},
+		{srcLink:"./assets/emoji.PNG",text:"Change emoji"},
+		{srcLink:"./assets/nickname.PNG",text:"Edit nicknames"},
+		{srcLink:"./assets/searchInChat.PNG",text:"Search in conversation"}
 	]
 	panelthree:any=
 	[
-		{srcLink:"/assets/gallery.PNG",text:"Media"},
-		{srcLink:"/assets/files.PNG",text:"Files"},
-		{srcLink:"/assets/links.PNG",text:"Links"}
+		{srcLink:"./assets/gallery.PNG",text:"Media"},
+		{srcLink:"./assets/files.PNG",text:"Files"},
+		{srcLink:"./assets/links.PNG",text:"Links"}
 	]
 	panelfour:any=
 	[
-		{srcLink:"/assets/bellicon.PNG",text:"Mute notification"},
-		{srcLink:"/assets/ignore.PNG",text:"Ignore Messages"},
-		{srcLink:"/assets/block.PNG",text:"Block"}
+		{srcLink:"./assets/bellicon.PNG",text:"Mute notification"},
+		{srcLink:"./assets/ignore.PNG",text:"Ignore Messages"},
+		{srcLink:"./assets/block.PNG",text:"Block"}
 	]
 
 	//images for icons
 
-	like="/assets/like.PNG"
-	send="/assets/send.PNG"
-	gif="/assets/gif.PNG"
-	files="/assets/files.PNG"
-	images="/assets/image.PNG"
-	smiley="/assets/smiley.PNG"
-	plus="/assets/plus.PNG"
-	pin="/assets/pin.PNG"
-	Profilefiles="/assets/Profilefiles.PNG"
-	report="/assets/report.PNG"
+	like="./assets/like.PNG"
+	send="./assets/send.PNG"
+	gif="./assets/gif.PNG"
+	files="./assets/files.PNG"
+	images="./assets/image.PNG"
+	smiley="./assets/smiley.PNG"
+	plus="./assets/plus.PNG"
+	pin="./assets/pin.PNG"
+	Profilefiles="./assets/Profilefiles.PNG"
+	report="./assets/report.PNG"
 
 	constructor(private chatservice:contactschats) {}
 

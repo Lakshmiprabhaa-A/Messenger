@@ -18,7 +18,11 @@
 
         <div id="conversation">
             <div class=" d-flex flex-column justify-content-end">
-                <ng-container *ngFor="let message of conversation.messages ; let i = index;let last = last;">
+                <ng-container 
+                    *ngFor="let message of conversation.messages ; 
+                    let i = index;
+                    let last = last;"
+                >
                     <ng-container *ngIf="check(i)">
                         <span id="dateAndTime"  class="text-center font-weight-bold text-secondary my-2">
                             <ng-container *ngIf="typeOf(message.date)==='string'">
@@ -29,7 +33,9 @@
 
                     <span class="d-flex mr-4">
 
-                        <img id="imageLeft" class="rounded-circle mt-2 mr-2" 
+                        <img 
+                            id="imageLeft" 
+                            class="rounded-circle mt-2 mr-2" 
                             [src]="conversation.photo"
                             [ngClass]="{me:message.me}" 
                         />

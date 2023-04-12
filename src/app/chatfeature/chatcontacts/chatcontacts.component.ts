@@ -5,7 +5,7 @@ import { contactschats } from 'src/app/services/chats.service';
 
 interface KeyValue {
 	[key: number]: number;
-  }
+}
 
 @Component({
 	selector: 'app-chatcontacts',
@@ -62,6 +62,9 @@ export class ChatcontactsComponent implements OnInit,OnDestroy {
 	}
 
 	ngOnDestroy(): void {
+		this.totalCount = 0;
+		this.profileIds = [];
+		this.profileCountDetails = [];
 		this.subscription.unsubscribe();
 	}
 	

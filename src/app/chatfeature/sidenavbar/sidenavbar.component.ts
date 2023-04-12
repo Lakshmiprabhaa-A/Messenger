@@ -9,10 +9,10 @@ import { Router } from '@angular/router';
 })
 export class SidenavbarComponent implements OnInit {
 
-	sidenavbaricon = "/assets/sidenavbaricons.PNG";
-	searchicon = "/assets/search.PNG";
-	minmaxicon = "/assets/minmax.PNG";
-	myprofilepic = "/assets/myprofilepic.jpg"
+	sidenavbaricon = "./assets/sidenavbaricons.PNG";
+	searchicon = "./assets/search.PNG";
+	minmaxicon = "./assets/minmax.PNG";
+	myprofilepic = "./assets/myprofilepic.jpg"
 
 	constructor(private router: Router) { }
 

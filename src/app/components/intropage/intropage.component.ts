@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { logincheck } from 'src/app/services/loginDetails.service';
 import { FormGroup } from '@angular/forms';
 
@@ -10,13 +10,12 @@ import { FormGroup } from '@angular/forms';
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class IntropageComponent implements OnInit {
+export class IntropageComponent implements OnInit, CanActivate {
 	
 	//images and icons
 
-	icon = '/assets/messenger-icon.png';
-	meta = '/assets/metasymbol.PNG';
-	introimgleft = './assets/introtext.PNG';
+	icon = './assets/messenger-icon.png';
+	meta = './assets/metasymbol.PNG';
 	introimgright = './assets/introimg.PNG';
 	appstrorems = './assets/appstore-ms.PNG';
 
@@ -46,6 +45,15 @@ export class IntropageComponent implements OnInit {
 
 	ngOnInit(): void { }
 
+	canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+		if (
+			!this.loginService.checkUsername(this.usernameEntered) ||
+			!this.loginService.checkPassword(this.passwordEntered)) 	
+		{
+				return false;
+		}
+			return true;
+	}
 	checkForRightUser() {
 		if (
 			!this.loginService.checkUsername(this.usernameEntered) ||
@@ -62,5 +70,11 @@ export class IntropageComponent implements OnInit {
 		else {
 			this.router.navigate(['/mainpage']);
 		}
+	}
+
+	@Output() UsernameError: EventEmitter<any> = new EventEmitter();
+
+	UsernameErrorFunc(param: boolean) {
+		this.UsernameError.emit(this.usernameerror);
 	}
 }

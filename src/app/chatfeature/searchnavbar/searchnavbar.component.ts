@@ -24,8 +24,8 @@ export class SearchnavbarComponent implements OnInit, OnDestroy {
 
 	//images for icons
 
-	vd = '/assets/videorecode.png';
-	edit = '/assets/edit.png';
+	vd = './assets/videorecode.png';
+	edit = './assets/edit.png';
 
 	constructor(private chatservice: contactschats) { }
 
