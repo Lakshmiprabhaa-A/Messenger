@@ -14,7 +14,7 @@ export class IntropageComponent implements OnInit, CanActivate {
 	
 	//images and icons
 
-	icon = './assets/messenger-icon.png';
+	icon = 'assets/messenger-icon.png';
 	meta = './assets/metasymbol.PNG';
 	introimgright = './assets/introimg.PNG';
 	appstrorems = './assets/appstore-ms.PNG';

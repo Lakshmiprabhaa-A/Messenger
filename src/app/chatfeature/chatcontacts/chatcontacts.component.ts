@@ -29,10 +29,10 @@ export class ChatcontactsComponent implements OnInit,OnDestroy {
 	profileCountDetails: number[] = [];
 	totalCount: number;
 
-	downloadwindows = '/assets/downloads.PNG';
-	nochat = '/assets/nochat.PNG';
-	optionss = '/assets/more.PNG';
-	search = '/assets/bigsearchicon.PNG';
+	downloadwindows = './assets/downloads.PNG';
+	nochat = './assets/nochat.PNG';
+	optionss = './assets/more.PNG';
+	search = './assets/bigsearchicon.PNG';
 
 	// for search functionality
 
