@@ -81,7 +81,7 @@ export class contactschats {
 		},
 		{
 			uniqueId: 5,
-			photo: "/assets/ben10.jpg",
+			photo: "./assets/ben10.jpg",
 			name: "Ben Tennyson",
 			status: "Its Action Time",
 			messages: [
@@ -145,7 +145,7 @@ export class contactschats {
 		},
 		{
 			uniqueId: 9,
-			photo: "/assets/julie.png",
+			photo: "./assets/julie.png",
 			name: "Julie",
 			status: "Adventures vs Schools",
 			messages: [

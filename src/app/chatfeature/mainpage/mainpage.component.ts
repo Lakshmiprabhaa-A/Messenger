@@ -8,8 +8,8 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 })
 export class MainpageComponent implements OnInit {
 
-	downloadwindows = '/assets/windows.PNG';
-	nochat = '/assets/nochat.PNG';
+	downloadwindows = './assets/windows.PNG';
+	nochat = './assets/nochat.PNG';
 
 	conversation: any;
 	isConversation: boolean = false;
